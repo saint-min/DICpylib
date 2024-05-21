@@ -1,5 +1,5 @@
-from util import load_image_as_grayscale, generate_poi_queue
-from fftcc import fftcc_compute_poi_queue
+from dicpylib.util import load_image_as_grayscale, generate_poi_queue
+from dicpylib.fftcc import fftcc_compute_poi_queue
 
 if __name__ == "__main__":
     ref_img_path = './img/oht_cfrp_0.bmp'
