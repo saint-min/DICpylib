@@ -28,10 +28,15 @@ def extract_subset(image, center_x, center_y, subset_radius_x, subset_radius_y):
     Returns:
     np.array: The extracted subset of the image.
     """
+    # coordinate of POI
     center_x = int(center_x)
     center_y = int(center_y)
+
+    # coordinate of subset's top-left corner
     x_start = max(center_x - subset_radius_x, 0)
     x_end = min(center_x + subset_radius_x + 1, image.shape[1])
+    
+    # coordinate of subset's bottom-right corner
     y_start = max(center_y - subset_radius_y, 0)
     y_end = min(center_y + subset_radius_y + 1, image.shape[0])
     

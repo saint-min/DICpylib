@@ -2,6 +2,7 @@ import numpy as np
 from scipy.fft import fft2, ifft2
 from multiprocessing import Pool, cpu_count
 from .util import extract_subset
+from tqdm.auto import tqdm
 
 def fftcc_compute_single_poi(poi, ref_img, tar_img, subset_radius_x, subset_radius_y):
     """
@@ -112,6 +113,6 @@ def fftcc_compute_poi_queue(poi_queue, ref_img, tar_img, subset_radius_x, subset
 
     # Use multiprocessing Pool to compute the POI queue in parallel
     with Pool(processes=num_threads) as pool:
-        results = pool.starmap(fftcc_compute_single_poi, args)
+        results = pool.starmap(fftcc_compute_single_poi, tqdm(args, total=len(poi_queue)))
 
     return results
